@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+gem 'sass'
+gem 'uglifier'
+gem 'haml'
+gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
+gem 'rails-assets-jquery', source: 'https://rails-assets.org'
