@@ -5,6 +5,7 @@ set :sprockets, Sprockets::Environment.new
 
 settings.sprockets.append_path "assets/stylesheets"
 settings.sprockets.append_path "assets/javascripts"
+settings.sprockets.append_path "assets/fonts"
 settings.sprockets.css_compressor = :scss
 settings.sprockets.js_compressor  = :uglify
 
@@ -24,5 +25,6 @@ get "/assets/*" do
 end
 
 get '/' do
+  @greeting = "Hi there"
   haml :index
 end
