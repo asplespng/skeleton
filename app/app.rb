@@ -1,15 +1,12 @@
-require 'sinatra'
-require 'sprockets'
-require 'sass'
-require 'rails-assets-bootstrap'
-require 'rails-assets-jquery'
+require 'bundler'
+Bundler.require
 
 set :sprockets, Sprockets::Environment.new
 
 settings.sprockets.append_path "assets/stylesheets"
 settings.sprockets.append_path "assets/javascripts"
 settings.sprockets.css_compressor = :scss
-# settings.sprockets.js_compressor  = :uglify
+settings.sprockets.js_compressor  = :uglify
 
 settings.sprockets.context_class.class_eval do
   def asset_path(path, options = {})

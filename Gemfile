@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
+gem 'sinatra'
 gem 'sass'
 gem 'uglifier'
+gem 'sprockets'
 gem 'haml'
 gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
 gem 'rails-assets-jquery', source: 'https://rails-assets.org'
