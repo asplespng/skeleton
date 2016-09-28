@@ -1,4 +1,5 @@
 require 'bundler'
+require 'ostruct'
 Bundler.require
 
 set :sprockets, Sprockets::Environment.new
@@ -26,5 +27,8 @@ end
 
 get '/' do
   @greeting = "Hi there"
+  @user = OpenStruct.new
+  @user.errors = {name: ["An error has occured"]}
+  @user.name = "John Doe"
   haml :index
 end
