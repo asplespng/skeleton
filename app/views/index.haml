@@ -1,7 +1,7 @@
 .panel.panel-default
   .panel-heading
     .panel-title
-      .fa.fa-file-o.title-text= " New User"
+      .fa.fa-user-plus.fa-lg.title-text= " New User"
   .panel-body
     %form{ action: "/users", method: "post"}
       = input :name, object: @user, label: "Full name", placeholder: "Enter your full name"
