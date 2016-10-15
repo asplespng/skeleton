@@ -21,9 +21,17 @@ get "/assets/*" do
 end
 
 get '/' do
-  @greeting = "Hi there"
   @user = OpenStruct.new
-  @user.errors = {name: ["An error has occured"]}
   @user.name = "John Doe"
+  haml :index
+end
+
+post '/users' do
+  @user = OpenStruct.new
+  @user.name = params[:name]
+  @user.email = params[:email]
+  @user.password = params[:password]
+  @user.birthday = params[:birthday]
+  @user.errors = {name: ["can't be blank"]} unless @user.name.present?
   haml :index
 end
