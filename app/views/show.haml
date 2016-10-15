@@ -1,0 +1,16 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      .fa.fa-user.fa-lg
+      .title-text= " #{@user.name}"
+  .panel-body
+    %table.table.table-striped
+      %tr
+        %th.col-md-1 Full name:
+        %td= @user.name
+      %tr
+        %th.col-md-1 Email:
+        %td= @user.email
+      %tr
+        %th.col-md-1 Birthday:
+        %td= @user.birthday.present? ? Date.parse(@user.birthday).strftime('%m/%d/%Y') : nil

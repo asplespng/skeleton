@@ -32,6 +32,13 @@ post '/users' do
   @user.email = params[:email]
   @user.password = params[:password]
   @user.birthday = params[:birthday]
-  @user.errors = {name: ["can't be blank"]} unless @user.name.present?
-  haml :index
+  @user.errors = {}
+  @user.errors[:name] = ["can't be blank"] unless @user.name.present?
+  @user.errors[:email] = ["can't be blank"] unless @user.email.present?
+  @user.errors[:password] = ["can't be blank"] unless @user.password.present?
+  if @user.errors.any?
+    haml :index
+  else
+    haml :show
+  end
 end
