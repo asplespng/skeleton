@@ -1,13 +1,19 @@
 require 'bundler'
 require 'ostruct'
+require 'pry'
 Bundler.require
 
 set :sprockets, Sprockets::Environment.new
 
 %w[stylesheets javascripts fonts].each {|path| settings.sprockets.append_path "assets/#{path}"}
 RailsAssets.load_paths.each {|path| settings.sprockets.append_path path}
-settings.sprockets.css_compressor = :scss
-settings.sprockets.js_compressor  = :uglify
+Opal.append_path '/assets/javascripts'
+Opal.paths.each do |path|
+  settings.sprockets.append_path path
+end
+
+# settings.sprockets.css_compressor = :scss
+# settings.sprockets.js_compressor  = :uglify
 
 settings.sprockets.context_class.class_eval do
   def asset_path(path, options = {})
