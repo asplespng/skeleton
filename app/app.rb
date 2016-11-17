@@ -7,11 +7,10 @@ set :sprockets, Sprockets::Environment.new
 
 %w[stylesheets javascripts fonts].each {|path| settings.sprockets.append_path "assets/#{path}"}
 RailsAssets.load_paths.each {|path| settings.sprockets.append_path path}
-Opal.append_path '/assets/javascripts'
+Opal.append_path 'assets/javascripts'
 Opal.paths.each do |path|
   settings.sprockets.append_path path
 end
-
 # settings.sprockets.css_compressor = :scss
 # settings.sprockets.js_compressor  = :uglify
 

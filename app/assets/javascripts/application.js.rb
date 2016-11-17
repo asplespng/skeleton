@@ -1,0 +1,6 @@
+require 'opal'
+require 'jquery'
+require 'opal-jquery'
+require 'opals'
+require 'opal_manifest'
+require 'bootstrap'
